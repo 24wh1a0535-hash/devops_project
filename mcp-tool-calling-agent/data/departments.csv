@@ -1,0 +1,6 @@
+department_id,department_name,manager,description
+D001,AI,Karen Davis,Responsible for researching and developing artificial intelligence and machine learning solutions for the company. Builds predictive models and intelligent automation systems.
+D002,Engineering,Leo Nguyen,Handles software development including backend services, frontend interfaces, and DevOps infrastructure. Ensures reliable and scalable system architecture.
+D003,Security,Mia Robinson,Manages company-wide cybersecurity initiatives, vulnerability assessments, penetration testing, and compliance with security standards.
+D004,HR,Iris Thompson,Oversees employee recruitment, onboarding, performance management, benefits administration, and company culture programs.
+D005,Finance,Olivia Scott,Manages financial planning, budgeting, reporting, and analysis to support business decision-making and ensure regulatory compliance.

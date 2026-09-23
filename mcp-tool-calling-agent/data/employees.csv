@@ -1,0 +1,16 @@
+employee_id,name,department,role,project_id,access_level
+E001,Alice Johnson,AI,Senior ML Engineer,P001,employee
+E002,Bob Martinez,AI,ML Engineer,P001,employee
+E003,Carol White,AI,Data Scientist,P002,employee
+E004,David Kim,Engineering,Backend Engineer,P003,employee
+E005,Eva Chen,Engineering,Frontend Engineer,P003,employee
+E006,Frank Patel,Engineering,DevOps Engineer,P004,employee
+E007,Grace Lee,Security,Security Analyst,P005,employee
+E008,Henry Brown,Security,Penetration Tester,P005,employee
+E009,Iris Thompson,HR,HR Manager,P006,manager
+E010,James Wilson,HR,HR Specialist,P006,employee
+E011,Karen Davis,AI,AI Research Lead,P002,manager
+E012,Leo Nguyen,Engineering,Engineering Manager,P003,manager
+E013,Mia Robinson,Security,Security Manager,P005,manager
+E014,Noah Clark,Finance,Financial Analyst,P007,employee
+E015,Olivia Scott,Finance,Finance Manager,P007,manager

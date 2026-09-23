@@ -1,0 +1,103 @@
+# =============================================================================
+# .dockerignore — ACME Technologies MCP Tool-Calling Agent
+# =============================================================================
+#
+# Files and directories listed here are NOT sent to the Docker build context.
+# This keeps images lean and — critically — prevents secrets from leaking
+# into the image layer.
+#
+# Rule of thumb:
+#   Exclude: secrets, local environment files, caches, build artifacts, OS junk
+#   Include: application source, data files, documents, requirements
+# =============================================================================
+
+# ── Secrets — NEVER include these in a Docker image ──────────────────────────
+.env
+*.pem
+*.key
+*.token
+secrets.json
+credentials.json
+
+# ── Virtual environment ───────────────────────────────────────────────────────
+# Dependencies are installed fresh inside the image from requirements.txt.
+.venv
+venv
+env
+ENV
+
+# ── Python byte-code and caches ───────────────────────────────────────────────
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*$py.class
+.Python
+
+# ── Build artifacts ───────────────────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+develop-eggs/
+downloads/
+wheels/
+sdist/
+MANIFEST
+
+# ── Version control ───────────────────────────────────────────────────────────
+.git
+.gitignore
+.gitattributes
+
+# ── Testing and coverage ──────────────────────────────────────────────────────
+.pytest_cache
+.coverage
+htmlcov/
+.tox/
+*.lcov
+
+# ── IDE and editor files ──────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.kiro/
+
+# ── OS-generated files ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── Logs and temporary files ──────────────────────────────────────────────────
+*.log
+logs/
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ── Docker files themselves (not needed in image context) ─────────────────────
+# NOTE: Dockerfile is intentionally NOT excluded — Docker needs it.
+# docker-compose.yml is excluded since it is only for the host orchestration.
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+
+# ── Documentation (optional — comment out to include docs in image) ───────────
+# docs/
+# README.md
+
+# ── CI/CD configuration ───────────────────────────────────────────────────────
+Jenkinsfile
+.jenkins/
+
+# ── Node / frontend (if ever added) ──────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

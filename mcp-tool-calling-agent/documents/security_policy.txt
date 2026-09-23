@@ -1,0 +1,106 @@
+ACME TECHNOLOGIES INC.
+INFORMATION SECURITY POLICY
+Version 4.0 | Effective Date: January 1, 2026
+Classification: Internal Use Only
+==================================================
+
+1. PURPOSE
+----------
+This policy establishes the principles and rules for protecting ACME
+Technologies' information assets. It applies to all employees, contractors,
+and third parties who access company systems and data.
+
+2. DATA CLASSIFICATION
+-----------------------
+All company data must be classified into one of four levels:
+
+PUBLIC: Information that can be shared freely (e.g., press releases).
+
+INTERNAL: General information for employees only (e.g., this policy).
+
+CONFIDENTIAL: Sensitive business information with limited access
+(e.g., financial reports, customer data, HR records).
+
+RESTRICTED: Highly sensitive information with strict access controls
+(e.g., encryption keys, trade secrets, personal identification data).
+
+3. ACCESS CONTROL
+-----------------
+Access to systems and data is granted on a need-to-know basis.
+The principle of least privilege must be applied at all times.
+Access rights are reviewed every 6 months by department managers.
+Terminated employees' access must be revoked within 24 hours.
+Shared accounts and passwords are strictly prohibited.
+
+4. PASSWORD POLICY
+------------------
+Minimum password length: 12 characters
+Must include: uppercase, lowercase, numbers, and special characters.
+Passwords must be changed every 90 days.
+Password reuse is not allowed for the last 12 passwords.
+Multi-Factor Authentication (MFA) is mandatory for all systems.
+
+5. DEVICE SECURITY
+------------------
+All company-issued devices must have approved antivirus software installed.
+Device encryption is mandatory for laptops and mobile devices.
+Devices must auto-lock after 5 minutes of inactivity.
+Lost or stolen devices must be reported to IT Security within 1 hour.
+Personal devices used for work must be enrolled in the MDM system.
+
+6. NETWORK SECURITY
+-------------------
+Employees must not connect to unsecured public Wi-Fi without VPN.
+Company VPN must be used for all remote access to internal systems.
+Network monitoring is conducted continuously for anomalous activity.
+Unauthorized network scanning or sniffing is strictly prohibited.
+
+7. DATA HANDLING
+----------------
+Confidential data must never be stored on personal devices.
+Sensitive files shared externally must use approved encrypted channels.
+Printing of confidential documents must use secure print release.
+Physical documents with sensitive data must be shredded when no longer needed.
+Cloud storage of company data is only permitted on approved platforms.
+
+8. INCIDENT RESPONSE
+--------------------
+Security incidents must be reported to security@acmetech.com immediately.
+Suspected phishing emails must be reported using the Phish Alert button.
+Do not attempt to investigate or fix a security incident independently.
+The Security team will assess, contain, and remediate all incidents.
+Post-incident reviews are conducted for all significant security events.
+
+9. ACCEPTABLE USE
+-----------------
+Company systems must not be used for:
+- Illegal activities of any kind
+- Accessing or distributing offensive or inappropriate content
+- Unauthorized cryptocurrency mining
+- Bypassing security controls or firewalls
+- Sharing confidential data with unauthorized parties
+
+10. THIRD-PARTY ACCESS
+-----------------------
+Third-party vendors with access to company systems must sign a
+Non-Disclosure Agreement (NDA) and Data Processing Agreement (DPA).
+Vendor access must be time-limited and monitored.
+Access must be revoked immediately upon contract completion.
+
+11. AUDIT AND COMPLIANCE
+-------------------------
+All system access is logged and audited regularly.
+Employees may be subject to security audits without prior notice.
+Non-compliance with this policy may result in disciplinary action.
+Annual security awareness training is mandatory for all employees.
+
+12. ZERO TRUST PRINCIPLES
+--------------------------
+ACME Technologies follows a Zero Trust security model:
+- Never trust, always verify.
+- All users must authenticate regardless of network location.
+- Micro-segmentation limits the blast radius of security incidents.
+- Continuous monitoring validates all access attempts.
+
+For security incidents or questions, contact: security@acmetech.com
+Emergency hotline: ext. 9911 (available 24/7)

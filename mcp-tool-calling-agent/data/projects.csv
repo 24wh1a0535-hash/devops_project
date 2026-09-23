@@ -1,0 +1,8 @@
+project_id,project_name,department,status,description,team_size
+P001,SmartAssist AI Platform,AI,Active,Building an internal AI-powered assistant that helps employees find information quickly using natural language queries. Uses large language models and retrieval-augmented generation.,5
+P002,Predictive Analytics Engine,AI,Active,Developing a machine learning pipeline to predict customer churn and recommend preventive actions. Uses historical customer data and behavioral signals.,3
+P003,Unified API Gateway,Engineering,Active,Designing and building a centralized API gateway to manage authentication, rate limiting, and routing for all internal and external services.,6
+P004,Cloud Infrastructure Migration,Engineering,Completed,Successfully migrated on-premise infrastructure to a cloud-based environment. Improved scalability and reduced operational costs by 30%.,4
+P005,Zero Trust Security Program,Security,Active,Implementing a zero-trust security architecture across all company systems. Includes identity verification, least-privilege access, and continuous monitoring.,3
+P006,Employee Wellness Initiative,HR,Active,Launching a comprehensive employee wellness program including mental health support, fitness benefits, and flexible work arrangements.,2
+P007,Annual Budget Automation,Finance,In Progress,Automating the annual budget planning and forecasting process using financial modeling tools to reduce manual effort and improve accuracy.,2

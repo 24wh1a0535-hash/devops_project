@@ -1,0 +1,214 @@
+// =============================================================================
+// Jenkinsfile — ACME Technologies MCP Tool-Calling Agent
+// Declarative Pipeline
+// =============================================================================
+//
+// Pipeline goal:
+//   GitHub → Jenkins → Checkout → Install deps → pytest → Docker build
+//           → Start temp container → Health check → Cleanup → SUCCESS
+//
+// Requirements:
+//   - Jenkins must run on a machine/agent with:
+//       • Python 3.10+ available as 'python' or 'python3'
+//       • Docker CLI + daemon accessible to the Jenkins user
+//   - No Docker Hub push is performed — local image only.
+//   - No secrets are hardcoded here. All secrets are managed through
+//     Jenkins Credentials and injected as environment variables at runtime.
+//
+// Jenkins Credentials required (configure in Manage Jenkins → Credentials):
+//   (none required for DEMO_MODE=true — the pipeline runs with local data)
+//   Optional for LLM integration tests:
+//     OPENROUTER_API_KEY  — Secret text credential
+//
+// =============================================================================
+
+pipeline {
+
+    agent any
+
+    // ── Environment ──────────────────────────────────────────────────────────
+    environment {
+        // Safe demo defaults — override via Jenkins Credentials for production
+        DEMO_MODE            = "true"
+        LLM_PROVIDER         = "openrouter"
+        LLM_MODEL            = "openai/gpt-4o-mini"
+        DATA_DIR             = "data"
+        DOCUMENTS_DIR        = "documents"
+        LOG_LEVEL            = "INFO"
+        SKIP_LLM_TESTS       = "true"
+
+        // Docker image / container names
+        IMAGE_NAME           = "mcp-agent"
+        IMAGE_TAG            = "build-${BUILD_NUMBER}"
+        // Unique container name prevents conflicts if a previous run crashed
+        TEST_CONTAINER_NAME  = "mcp-agent-ci-${BUILD_NUMBER}"
+        TEST_HOST_PORT       = "8502"   // Use 8502 in CI to avoid clashing with a running dev instance
+    }
+
+    // ── Pipeline options ──────────────────────────────────────────────────────
+    options {
+        timeout(time: 30, unit: "MINUTES")
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: "10"))
+    }
+
+    // ── Stages ────────────────────────────────────────────────────────────────
+    stages {
+
+        // ── Stage 1: Checkout ─────────────────────────────────────────────────
+        stage("Checkout") {
+            steps {
+                echo "=== Stage 1: Checkout ==="
+                checkout scm
+                echo "Workspace: ${WORKSPACE}"
+                sh "ls -la"
+            }
+        }
+
+        // ── Stage 2: Install Dependencies ─────────────────────────────────────
+        stage("Install Dependencies") {
+            steps {
+                echo "=== Stage 2: Install Dependencies ==="
+                sh """
+                    python --version || python3 --version
+                    python -m venv .ci-venv || python3 -m venv .ci-venv
+                    . .ci-venv/bin/activate
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+                    echo "Dependencies installed."
+                """
+            }
+        }
+
+        // ── Stage 3: Run Tests ────────────────────────────────────────────────
+        stage("Run Tests") {
+            steps {
+                echo "=== Stage 3: Run Tests ==="
+                sh """
+                    . .ci-venv/bin/activate
+                    python -m pytest tests/ -v --tb=short
+                """
+            }
+            post {
+                always {
+                    // Publish JUnit-compatible results if available
+                    // (requires pytest-junit or --junitxml flag)
+                    echo "Tests stage complete."
+                }
+                failure {
+                    echo "Tests FAILED. Aborting pipeline."
+                }
+            }
+        }
+
+        // ── Stage 4: Build Docker Image ───────────────────────────────────────
+        stage("Build Docker Image") {
+            steps {
+                echo "=== Stage 4: Build Docker Image ==="
+                sh """
+                    docker --version
+                    docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .
+                    echo "Docker image built: ${IMAGE_NAME}:${IMAGE_TAG}"
+                """
+            }
+        }
+
+        // ── Stage 5: Docker Container Validation ─────────────────────────────
+        stage("Docker Container Validation") {
+            steps {
+                echo "=== Stage 5: Docker Container Validation ==="
+                sh """
+                    # Start the container in detached mode
+                    docker run -d \
+                        --name ${TEST_CONTAINER_NAME} \
+                        -p ${TEST_HOST_PORT}:8501 \
+                        -e DEMO_MODE=true \
+                        -e LLM_PROVIDER=openrouter \
+                        -e LLM_MODEL=openai/gpt-4o-mini \
+                        ${IMAGE_NAME}:${IMAGE_TAG}
+
+                    echo "Container started: ${TEST_CONTAINER_NAME}"
+
+                    # Wait for Streamlit to become healthy (up to 60 seconds)
+                    echo "Waiting for Streamlit to start..."
+                    for i in \$(seq 1 12); do
+                        sleep 5
+                        STATUS=\$(docker inspect --format='{{.State.Health.Status}}' ${TEST_CONTAINER_NAME} 2>/dev/null || echo "unknown")
+                        echo "  Attempt \$i/12 — container health: \$STATUS"
+                        if [ "\$STATUS" = "healthy" ]; then
+                            echo "Container is healthy."
+                            break
+                        fi
+                        # Fallback: try the health endpoint directly
+                        HTTP_CODE=\$(curl -s -o /dev/null -w "%{http_code}" http://localhost:${TEST_HOST_PORT}/_stcore/health 2>/dev/null || echo "000")
+                        echo "  Health endpoint HTTP status: \$HTTP_CODE"
+                        if [ "\$HTTP_CODE" = "200" ]; then
+                            echo "Streamlit health endpoint responded 200 OK."
+                            break
+                        fi
+                        if [ "\$i" = "12" ]; then
+                            echo "ERROR: Container did not become healthy within 60 seconds."
+                            docker logs ${TEST_CONTAINER_NAME}
+                            exit 1
+                        fi
+                    done
+
+                    echo "Docker container validation PASSED."
+                """
+            }
+        }
+
+    }
+
+    // ── Post-pipeline actions ─────────────────────────────────────────────────
+    post {
+
+        always {
+            echo "=== Stage 6: Cleanup ==="
+            sh """
+                # Stop and remove the test container (ignore errors if it never started)
+                docker stop ${TEST_CONTAINER_NAME} 2>/dev/null || true
+                docker rm   ${TEST_CONTAINER_NAME} 2>/dev/null || true
+                echo "Temporary container cleaned up."
+
+                # Remove the CI virtualenv
+                rm -rf .ci-venv || true
+                echo "CI virtualenv removed."
+            """
+        }
+
+        success {
+            echo """
+            ============================================================
+            BUILD SUCCEEDED
+            ============================================================
+            Branch : ${GIT_BRANCH}
+            Build  : ${BUILD_NUMBER}
+            Image  : ${IMAGE_NAME}:${IMAGE_TAG}
+
+            The Docker image is available locally.
+            No image was pushed to Docker Hub.
+
+            To run the application:
+              docker run -p 8501:8501 --env-file .env ${IMAGE_NAME}:latest
+              Open: http://localhost:8501
+            ============================================================
+            """
+        }
+
+        failure {
+            echo """
+            ============================================================
+            BUILD FAILED
+            ============================================================
+            Check the stage logs above for the root cause.
+            Common causes:
+              - pytest failures: review test output in Stage 3
+              - Docker build error: review Dockerfile / requirements.txt
+              - Container health check failed: review app startup logs
+            ============================================================
+            """
+        }
+
+    }
+}

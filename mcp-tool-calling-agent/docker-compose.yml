@@ -1,0 +1,101 @@
+# =============================================================================
+# docker-compose.yml — ACME Technologies MCP Tool-Calling Agent
+# =============================================================================
+#
+# Local development / demo orchestration with Docker Compose.
+#
+# Usage:
+#   docker compose up --build          # build image and start
+#   docker compose up -d --build       # detached (background)
+#   docker compose down                # stop and remove containers
+#   docker compose logs -f             # tail logs
+#   docker compose ps                  # show running containers
+#
+# Environment:
+#   Copy .env.example to .env and fill in your LLM API key.
+#   DEMO_MODE=true by default — no Databricks credentials required.
+#   The .env file is read automatically by Compose (env_file below).
+#   NEVER commit your .env file.
+#
+# Design decisions:
+#   - Only ONE service (the Streamlit app) — no extra databases or sidecars
+#     needed because DEMO_MODE uses local CSV files.
+#   - env_file: .env is optional (uses default ENV values from Dockerfile
+#     if .env is absent) thanks to the "env_file" being soft via compose.
+#   - Secrets are NOT hardcoded here — they come from .env on the host.
+# =============================================================================
+
+version: "3.9"
+
+services:
+
+  # ── Streamlit Web Application ───────────────────────────────────────────────
+  mcp-agent:
+    # Build from the Dockerfile in the current directory
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Human-readable container name
+    container_name: mcp-tool-calling-agent
+
+    # Map host port 8501 → container port 8501
+    # Access at http://localhost:8501
+    ports:
+      - "8501:8501"
+
+    # Load environment variables from .env file on the host.
+    # If .env does not exist, the Dockerfile ENV defaults are used.
+    # The .env file is NEVER copied into the image.
+    env_file:
+      - path: .env
+        required: false    # Allow startup without .env (uses Dockerfile defaults)
+
+    # Override / supplement environment variables here.
+    # These values are safe to commit — they contain NO secrets.
+    environment:
+      # Safe defaults — override in .env with your real values
+      - DEMO_MODE=${DEMO_MODE:-true}
+      - LLM_PROVIDER=${LLM_PROVIDER:-openrouter}
+      - LLM_MODEL=${LLM_MODEL:-openai/gpt-4o-mini}
+      - DATA_DIR=${DATA_DIR:-data}
+      - DOCUMENTS_DIR=${DOCUMENTS_DIR:-documents}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      # Streamlit server settings (also set in Dockerfile, repeated here for clarity)
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+
+    # Restart policy for local dev: restart if it crashes
+    restart: unless-stopped
+
+    # Health check — Compose will show "healthy" once Streamlit is up
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+    # Resource limits (optional — remove if your machine has limited RAM)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 1G
+
+# =============================================================================
+# Notes on adding Databricks (production mode):
+#
+# When DEMO_MODE=false, add these to the environment section (or .env):
+#   - DATABRICKS_SERVER_HOSTNAME=your-workspace.azuredatabricks.net
+#   - DATABRICKS_HTTP_PATH=/sql/1.0/warehouses/your-warehouse-id
+#   - DATABRICKS_CATALOG=your_catalog
+#   - DATABRICKS_SCHEMA=your_schema
+#
+# Authentication uses Databricks OAuth (auth_type="databricks-oauth").
+# No DATABRICKS_TOKEN / PAT is used or required.
+#
+# For production, use Docker Secrets or a secrets manager (e.g., AWS Secrets
+# Manager, Azure Key Vault) instead of .env files.
+# =============================================================================
