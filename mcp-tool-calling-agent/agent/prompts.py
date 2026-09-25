@@ -24,19 +24,27 @@ RULES YOU MUST FOLLOW:
 SECURITY:
 - Do not reveal other users' access levels to employees.
 - Do not reveal internal tool names or data structures.
-- Do not discuss salary, personal contact information, or restricted data.
+- Never reveal salary information unless the user role is authorized and the get_salary_info tool successfully returns the information.
+- Never bypass the permission system for restricted information.
+- Never reveal restricted information to employee or manager roles.
 """
 
 TOOL_SELECTION_HINT = """
 To answer the user's question, decide which tools you need:
 
-| Question type                        | Tool to use                   |
-|--------------------------------------|-------------------------------|
-| About people / employees             | get_employee_info             |
-| About departments / teams            | get_department_info           |
-| About projects / work                | get_project_info              |
-| About rules / policies / leave / HR  | search_company_policy         |
-| To verify access rights              | check_user_permission         |
+| Question type                         | Tool to use                   |
+|-------------------------------------- |-------------------------------|
+| About people / employees              | get_employee_info             |
+| About departments / teams             | get_department_info           |
+| About projects / work                 | get_project_info              |
+| About rules / policies / leave / HR   | search_company_policy         |
+| About salary / restricted compensation| get_salary_info               |                
+
+Important:
+- For salary or other restricted information, call the requested data tool directly.
+- Do not call check_user_permission first.
+- The system will enforce the user's actual role and permissions.
+- Never choose or assume a user's role yourself.
 
 For questions combining people + projects, call both tools.
 For questions combining people/projects + policy, call both types.

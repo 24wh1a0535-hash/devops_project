@@ -107,7 +107,44 @@ def _get_employees_databricks(department, employee_id) -> list[dict]:
         logger.error("Databricks employee query failed: %s. Falling back to local CSV.", e)
         return _get_employees_local(department, employee_id)
 
+def get_salary_info(employee_id: Optional[str] = None) -> dict:
 
+    if employee_id is not None:
+        employee_id = str(employee_id).strip().upper() or None
+
+    if _is_demo():
+
+        rows = _read_csv("employees.csv")
+        source = "local_csv"
+
+        if employee_id:
+            rows = [
+                row for row in rows
+                if row.get("employee_id", "").upper() == employee_id
+            ]
+    else:
+
+        rows = _get_employees_databricks(None, employee_id)
+        source = "databricks_unity_catalog"
+
+    if isinstance(rows, dict) and "error" in rows:
+        return rows
+
+    salary_data = []
+
+    for row in rows:
+
+        salary_data.append({
+            "employee_id": row.get("employee_id"),
+            "name": row.get("name"),
+            "salary": row.get("salary")
+        })
+
+    return {
+        "salary_information": salary_data,
+        "count": len(salary_data),
+        "source": source
+    } 
 # ── Department data ───────────────────────────────────────────────────────────
 
 def get_department_info(department_name: Optional[str] = None) -> dict:

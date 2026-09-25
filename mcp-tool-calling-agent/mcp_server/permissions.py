@@ -32,11 +32,12 @@ ROLE_PERMISSIONS: dict[str, list[str]] = {
         "check_user_permission",
     ],
     "admin": [
-        "get_department_info",
-        "get_project_info",
-        "get_employee_info",
-        "search_company_policy",
-        "check_user_permission",
+       "get_department_info",
+       "get_project_info",
+       "get_employee_info",
+       "search_company_policy",
+       "check_user_permission",
+       "get_salary_info",
     ],
 }
 

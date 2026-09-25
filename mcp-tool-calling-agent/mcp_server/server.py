@@ -27,6 +27,7 @@ from mcp_server.tools import (
     get_department_info as _get_department_info,
     get_project_info as _get_project_info,
     search_company_policy as _search_company_policy,
+    get_salary_info as _get_salary_info,
 )
 from mcp_server.permissions import (
     permission_check_result,
@@ -158,7 +159,27 @@ def search_company_policy(
         document=document if document else None,
     )
     return json.dumps(result)
+# ---- Tool: get_salary_info ----------------------------------------------------
 
+@mcp.tool()
+def get_salary_info(
+    employee_id: str = "",
+) -> str:
+    """
+    Get restricted salary information.
+
+    This tool is intended for authorized users only.
+    The agent permission layer controls access.
+
+    Args:
+        employee_id: Optional employee ID such as E001.
+    """
+
+    result = _get_salary_info(
+        employee_id=employee_id if employee_id else None,
+    )
+
+    return json.dumps(result)
 
 # ---- Tool: check_user_permission --------------------------------------------
 
