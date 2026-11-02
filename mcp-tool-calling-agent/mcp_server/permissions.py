@@ -94,6 +94,7 @@ ROLE_PERMISSIONS: dict[str, list[str]] = {
         "audit_login_activity",
         "get_headcount_report",
         "get_admin_permissions",
+        "get_salary_info",
         # IT support — employee tools
         "check_active_incidents",
         "check_application_status",

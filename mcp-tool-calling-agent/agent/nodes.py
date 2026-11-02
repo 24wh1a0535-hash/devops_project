@@ -42,6 +42,7 @@ PERMISSION_CHECKED_TOOLS = {
     "audit_login_activity",
     "get_headcount_report",   # dedicated org-wide headcount report (Admin only)
     "get_admin_permissions",
+    "get_salary_info",
     # IT support — employee tools
     "check_active_incidents",
     "check_application_status",
