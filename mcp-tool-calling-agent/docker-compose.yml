@@ -25,8 +25,6 @@
 #   - Secrets are NOT hardcoded here — they come from .env on the host.
 # =============================================================================
 
-version: "3.9"
-
 services:
 
   # ── Streamlit Web Application ───────────────────────────────────────────────

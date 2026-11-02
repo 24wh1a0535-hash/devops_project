@@ -1,0 +1,16 @@
+employee_id,name,department,month,year,days_present,days_absent,late_arrivals,leave_days,overtime_hours,attendance_pct
+E001,Alice Johnson,AI,September,2026,20,1,0,1,4,95.2
+E002,Bob Martinez,AI,September,2026,19,2,1,2,2,90.5
+E003,Carol White,AI,September,2026,21,0,0,0,0,100.0
+E004,David Kim,Engineering,September,2026,20,1,2,1,6,95.2
+E005,Eva Chen,Engineering,September,2026,22,0,0,0,3,100.0
+E006,Frank Patel,Engineering,September,2026,18,3,1,2,0,85.7
+E007,Grace Lee,Security,September,2026,21,0,0,0,2,100.0
+E008,Henry Brown,Security,September,2026,20,1,0,1,0,95.2
+E009,Iris Thompson,HR,September,2026,21,0,1,0,1,100.0
+E010,James Wilson,HR,September,2026,20,1,0,1,0,95.2
+E011,Karen Davis,AI,September,2026,21,0,0,0,3,100.0
+E012,Leo Nguyen,Engineering,September,2026,19,2,1,1,5,90.5
+E013,Mia Robinson,Security,September,2026,21,0,0,0,2,100.0
+E014,Noah Clark,Finance,September,2026,22,0,0,0,0,100.0
+E015,Olivia Scott,Finance,September,2026,21,1,0,0,1,95.5

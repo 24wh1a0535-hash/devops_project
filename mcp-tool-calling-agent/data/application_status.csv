@@ -1,0 +1,9 @@
+service_id,service_name,status,description,affected_users,related_incident,last_checked
+SVC001,SmartAssist AI Platform,Down,The SmartAssist AI Platform is completely unavailable due to a failed database migration. Engineers are actively working on rollback.,12,INC001,2026-10-04 10:00:00
+SVC002,Company VPN,Degraded,The company VPN is operational but experiencing intermittent connectivity drops. Remote workers may face disconnections every 15-20 minutes.,18,INC002,2026-10-04 09:30:00
+SVC003,Employee Portal,Degraded,The Employee Portal is partially unavailable. Login functionality is failing for users in the Hyderabad office due to an SSO issue.,6,INC003,2026-10-04 09:45:00
+SVC004,Internal Developer Portal,Degraded,The Internal Developer Portal is experiencing severe performance degradation. Page load times are 30-60 seconds due to a suspected memory leak.,8,INC004,2026-10-04 08:00:00
+SVC005,HR Management System,Operational,The HR Management System is fully operational. The earlier report generation issue was resolved this morning.,0,,2026-10-04 07:00:00
+SVC006,Finance System,Degraded,The Finance System in Chennai is experiencing intermittent failures due to network packet loss on the Finance department network segment.,5,INC006,2026-10-04 09:00:00
+SVC007,Email (Microsoft 365),Operational,Company email is fully operational. No issues reported.,0,,2026-10-04 10:00:00
+SVC008,Jira Project Tracker,Operational,Jira is fully operational. No issues reported.,0,,2026-10-04 10:00:00

@@ -62,6 +62,8 @@ pipeline {
                 checkout scm
                 echo "Workspace: ${WORKSPACE}"
                 sh "ls -la"
+                // Confirm the project sub-directory exists after checkout
+                sh "ls -la mcp-tool-calling-agent/"
             }
         }
 
@@ -69,14 +71,17 @@ pipeline {
         stage("Install Dependencies") {
             steps {
                 echo "=== Stage 2: Install Dependencies ==="
-                sh """
-                    python --version || python3 --version
-                    python -m venv .ci-venv || python3 -m venv .ci-venv
-                    . .ci-venv/bin/activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
-                    echo "Dependencies installed."
-                """
+                // All subsequent steps run inside the project sub-directory
+                dir("mcp-tool-calling-agent") {
+                    sh """
+                        python --version || python3 --version
+                        python -m venv .ci-venv || python3 -m venv .ci-venv
+                        . .ci-venv/bin/activate
+                        pip install --upgrade pip
+                        pip install -r requirements.txt
+                        echo "Dependencies installed."
+                    """
+                }
             }
         }
 
@@ -84,15 +89,21 @@ pipeline {
         stage("Run Tests") {
             steps {
                 echo "=== Stage 3: Run Tests ==="
-                sh """
-                    . .ci-venv/bin/activate
-                    python -m pytest tests/ -v --tb=short
-                """
+                dir("mcp-tool-calling-agent") {
+                    sh """
+                        . .ci-venv/bin/activate
+                        # Generate JUnit XML for Jenkins test reporting
+                        python -m pytest tests/ -v --tb=short \
+                            --junitxml=test-results.xml \
+                            -p no:cacheprovider
+                    """
+                }
             }
             post {
                 always {
-                    // Publish JUnit-compatible results if available
-                    // (requires pytest-junit or --junitxml flag)
+                    // Publish JUnit results so Jenkins shows pass/fail per test
+                    junit allowEmptyResults: true,
+                          testResults: "mcp-tool-calling-agent/test-results.xml"
                     echo "Tests stage complete."
                 }
                 failure {
@@ -105,11 +116,13 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 echo "=== Stage 4: Build Docker Image ==="
-                sh """
-                    docker --version
-                    docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .
-                    echo "Docker image built: ${IMAGE_NAME}:${IMAGE_TAG}"
-                """
+                dir("mcp-tool-calling-agent") {
+                    sh """
+                        docker --version
+                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .
+                        echo "Docker image built: ${IMAGE_NAME}:${IMAGE_TAG}"
+                    """
+                }
             }
         }
 
@@ -117,44 +130,46 @@ pipeline {
         stage("Docker Container Validation") {
             steps {
                 echo "=== Stage 5: Docker Container Validation ==="
-                sh """
-                    # Start the container in detached mode
-                    docker run -d \
-                        --name ${TEST_CONTAINER_NAME} \
-                        -p ${TEST_HOST_PORT}:8501 \
-                        -e DEMO_MODE=true \
-                        -e LLM_PROVIDER=openrouter \
-                        -e LLM_MODEL=openai/gpt-4o-mini \
-                        ${IMAGE_NAME}:${IMAGE_TAG}
+                dir("mcp-tool-calling-agent") {
+                    sh """
+                        # Start the container in detached mode
+                        docker run -d \
+                            --name ${TEST_CONTAINER_NAME} \
+                            -p ${TEST_HOST_PORT}:8501 \
+                            -e DEMO_MODE=true \
+                            -e LLM_PROVIDER=openrouter \
+                            -e LLM_MODEL=openai/gpt-4o-mini \
+                            ${IMAGE_NAME}:${IMAGE_TAG}
 
-                    echo "Container started: ${TEST_CONTAINER_NAME}"
+                        echo "Container started: ${TEST_CONTAINER_NAME}"
 
-                    # Wait for Streamlit to become healthy (up to 60 seconds)
-                    echo "Waiting for Streamlit to start..."
-                    for i in \$(seq 1 12); do
-                        sleep 5
-                        STATUS=\$(docker inspect --format='{{.State.Health.Status}}' ${TEST_CONTAINER_NAME} 2>/dev/null || echo "unknown")
-                        echo "  Attempt \$i/12 — container health: \$STATUS"
-                        if [ "\$STATUS" = "healthy" ]; then
-                            echo "Container is healthy."
-                            break
-                        fi
-                        # Fallback: try the health endpoint directly
-                        HTTP_CODE=\$(curl -s -o /dev/null -w "%{http_code}" http://localhost:${TEST_HOST_PORT}/_stcore/health 2>/dev/null || echo "000")
-                        echo "  Health endpoint HTTP status: \$HTTP_CODE"
-                        if [ "\$HTTP_CODE" = "200" ]; then
-                            echo "Streamlit health endpoint responded 200 OK."
-                            break
-                        fi
-                        if [ "\$i" = "12" ]; then
-                            echo "ERROR: Container did not become healthy within 60 seconds."
-                            docker logs ${TEST_CONTAINER_NAME}
-                            exit 1
-                        fi
-                    done
+                        # Wait for Streamlit to become healthy (up to 60 seconds)
+                        echo "Waiting for Streamlit to start..."
+                        for i in \$(seq 1 12); do
+                            sleep 5
+                            STATUS=\$(docker inspect --format='{{.State.Health.Status}}' ${TEST_CONTAINER_NAME} 2>/dev/null || echo "unknown")
+                            echo "  Attempt \$i/12 — container health: \$STATUS"
+                            if [ "\$STATUS" = "healthy" ]; then
+                                echo "Container is healthy."
+                                break
+                            fi
+                            # Fallback: try the health endpoint directly
+                            HTTP_CODE=\$(curl -s -o /dev/null -w "%{http_code}" http://localhost:${TEST_HOST_PORT}/_stcore/health 2>/dev/null || echo "000")
+                            echo "  Health endpoint HTTP status: \$HTTP_CODE"
+                            if [ "\$HTTP_CODE" = "200" ]; then
+                                echo "Streamlit health endpoint responded 200 OK."
+                                break
+                            fi
+                            if [ "\$i" = "12" ]; then
+                                echo "ERROR: Container did not become healthy within 60 seconds."
+                                docker logs ${TEST_CONTAINER_NAME}
+                                exit 1
+                            fi
+                        done
 
-                    echo "Docker container validation PASSED."
-                """
+                        echo "Docker container validation PASSED."
+                    """
+                }
             }
         }
 
@@ -170,11 +185,12 @@ pipeline {
                 docker stop ${TEST_CONTAINER_NAME} 2>/dev/null || true
                 docker rm   ${TEST_CONTAINER_NAME} 2>/dev/null || true
                 echo "Temporary container cleaned up."
-
-                # Remove the CI virtualenv
-                rm -rf .ci-venv || true
-                echo "CI virtualenv removed."
             """
+            // Remove the CI virtualenv from the project sub-directory
+            dir("mcp-tool-calling-agent") {
+                sh "rm -rf .ci-venv || true"
+                echo "CI virtualenv removed."
+            }
         }
 
         success {

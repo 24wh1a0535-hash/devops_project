@@ -1,0 +1,2 @@
+vpn_status,description,affected_users,related_incident,last_updated,estimated_resolution
+Degraded,The company VPN (Cisco AnyConnect) is experiencing intermittent connectivity drops. Remote workers are disconnecting every 15-20 minutes. The Network Operations Team has identified a BGP routing misconfiguration introduced during last night's maintenance window and is in the process of reverting the change.,18,INC002,2026-10-04 09:30:00,2026-10-04 16:00:00

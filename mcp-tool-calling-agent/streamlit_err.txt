@@ -1,0 +1,4 @@
+2026-11-02 16:34:42.184 Uvicorn server started on 0.0.0.0:8501
+LLM call failed: Error code: 401 - {'error': {'message': 'API key expired.', 'code': 401, 'metadata': {'headers': {'WWW-Authenticate': 'Bearer error="invalid_token", error_description="API key expired"'}}}}
+LLM call failed: Error code: 401 - {'error': {'message': 'API key expired.', 'code': 401, 'metadata': {'headers': {'WWW-Authenticate': 'Bearer error="invalid_token", error_description="API key expired"'}}}}
+LLM call failed: Error code: 401 - {'error': {'message': 'API key expired.', 'code': 401, 'metadata': {'headers': {'WWW-Authenticate': 'Bearer error="invalid_token", error_description="API key expired"'}}}}

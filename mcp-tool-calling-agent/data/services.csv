@@ -1,0 +1,11 @@
+service_id,service_name,type,is_critical,status,description,related_incident
+SVC001,SmartAssist AI Platform,Internal Application,Yes,Down,Completely unavailable due to a failed database migration.,INC001
+SVC002,Company VPN,Network,Yes,Degraded,Intermittent connectivity drops affecting remote workers.,INC002
+SVC003,Employee Portal,Internal Application,Yes,Degraded,Login failures in Hyderabad office due to SSO issue.,INC003
+SVC004,Internal Developer Portal,Internal Application,Yes,Degraded,Severe performance degradation — 30-60 second page loads.,INC004
+SVC005,HR Management System,Internal Application,Yes,Operational,Fully operational. Earlier report generation issue resolved.,
+SVC006,Finance System,Internal Application,Yes,Degraded,Intermittent failures in Chennai due to network packet loss.,INC006
+SVC007,Email (Microsoft 365),SaaS,Yes,Operational,Fully operational.,
+SVC008,Jira Project Tracker,SaaS,No,Operational,Fully operational.,
+SVC009,Confluence Wiki,SaaS,No,Operational,Fully operational.,
+SVC010,GitHub Enterprise,SaaS,Yes,Operational,Fully operational.,

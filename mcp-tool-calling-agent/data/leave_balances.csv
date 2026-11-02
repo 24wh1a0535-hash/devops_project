@@ -1,0 +1,16 @@
+employee_id,name,department,annual_leave_total,annual_leave_used,annual_leave_remaining,sick_leave_total,sick_leave_used,sick_leave_remaining,casual_leave_total,casual_leave_used,casual_leave_remaining,year
+E001,Alice Johnson,AI,18,4,14,12,2,10,6,1,5,2026
+E002,Bob Martinez,AI,15,3,12,12,0,12,6,2,4,2026
+E003,Carol White,AI,15,7,8,12,1,11,6,0,6,2026
+E004,David Kim,Engineering,18,5,13,12,3,9,6,1,5,2026
+E005,Eva Chen,Engineering,15,2,13,12,0,12,6,2,4,2026
+E006,Frank Patel,Engineering,15,6,9,12,4,8,6,3,3,2026
+E007,Grace Lee,Security,18,3,15,12,1,11,6,0,6,2026
+E008,Henry Brown,Security,15,5,10,12,2,10,6,1,5,2026
+E009,Iris Thompson,HR,22,8,14,12,0,12,6,2,4,2026
+E010,James Wilson,HR,15,4,11,12,1,11,6,0,6,2026
+E011,Karen Davis,AI,22,6,16,12,3,9,6,1,5,2026
+E012,Leo Nguyen,Engineering,22,10,12,12,2,10,6,2,4,2026
+E013,Mia Robinson,Security,22,4,18,12,0,12,6,1,5,2026
+E014,Noah Clark,Finance,15,3,12,12,1,11,6,0,6,2026
+E015,Olivia Scott,Finance,22,7,15,12,2,10,6,1,5,2026

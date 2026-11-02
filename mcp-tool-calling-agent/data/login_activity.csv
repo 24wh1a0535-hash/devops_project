@@ -1,0 +1,21 @@
+log_id,employee_id,name,username,login_datetime,logout_datetime,ip_address,device,status,failed_attempts,location
+LOG001,E001,Alice Johnson,alice.johnson,2026-09-28 09:14:00,2026-09-28 18:02:00,10.0.1.45,LAPTOP-AJ01,Success,0,Office - Floor 3
+LOG002,E001,Alice Johnson,alice.johnson,2026-09-27 09:02:00,2026-09-27 17:55:00,10.0.1.45,LAPTOP-AJ01,Success,1,Office - Floor 3
+LOG003,E001,Alice Johnson,alice.johnson,2026-09-26 08:58:00,2026-09-26 18:15:00,10.0.1.45,LAPTOP-AJ01,Success,0,Office - Floor 3
+LOG004,E002,Bob Martinez,bob.martinez,2026-09-28 09:30:00,2026-09-28 17:45:00,10.0.1.62,LAPTOP-BM02,Success,0,Office - Floor 3
+LOG005,E002,Bob Martinez,bob.martinez,2026-09-27 09:10:00,2026-09-27 18:00:00,192.168.5.23,LAPTOP-BM02,Success,0,VPN - Remote
+LOG006,E003,Carol White,carol.white,2026-09-28 10:00:00,2026-09-28 18:30:00,10.0.1.78,LAPTOP-CW03,Success,0,Office - Floor 3
+LOG007,E004,David Kim,david.kim,2026-09-28 08:45:00,2026-09-28 19:00:00,10.0.2.11,LAPTOP-DK04,Success,0,Office - Floor 2
+LOG008,E005,Eva Chen,eva.chen,2026-09-28 09:20:00,2026-09-28 17:30:00,10.0.2.34,LAPTOP-EC05,Success,0,Office - Floor 2
+LOG009,E006,Frank Patel,frank.patel,2026-09-28 08:30:00,2026-09-28 20:15:00,10.0.2.56,LAPTOP-FP06,Success,0,Office - Floor 2
+LOG010,E007,Grace Lee,grace.lee,2026-09-28 08:00:00,2026-09-28 17:00:00,10.0.3.10,LAPTOP-GL07,Success,0,Office - Floor 4
+LOG011,E008,Henry Brown,henry.brown,2026-09-28 09:45:00,2026-09-28 18:45:00,10.0.3.22,LAPTOP-HB08,Success,2,Office - Floor 4
+LOG012,E008,Henry Brown,henry.brown,2026-09-27 09:00:00,2026-09-27 17:30:00,10.0.3.22,LAPTOP-HB08,Success,0,Office - Floor 4
+LOG013,E009,Iris Thompson,iris.thompson,2026-09-28 09:05:00,2026-09-28 17:00:00,10.0.4.5,LAPTOP-IT09,Success,0,Office - Floor 3
+LOG014,E010,James Wilson,james.wilson,2026-09-28 09:15:00,2026-09-28 17:15:00,10.0.4.18,LAPTOP-JW10,Success,0,Office - Floor 3
+LOG015,E011,Karen Davis,karen.davis,2026-09-28 08:50:00,2026-09-28 19:30:00,10.0.1.90,LAPTOP-KD11,Success,0,Office - Floor 3
+LOG016,E012,Leo Nguyen,leo.nguyen,2026-09-28 08:20:00,2026-09-28 20:00:00,10.0.2.70,LAPTOP-LN12,Success,0,Office - Floor 2
+LOG017,E013,Mia Robinson,mia.robinson,2026-09-28 07:55:00,2026-09-28 17:45:00,10.0.3.40,LAPTOP-MR13,Success,0,Office - Floor 4
+LOG018,E014,Noah Clark,noah.clark,2026-09-28 09:30:00,2026-09-28 17:30:00,10.0.5.8,LAPTOP-NC14,Success,0,Office - Floor 5
+LOG019,E015,Olivia Scott,olivia.scott,2026-09-28 08:40:00,2026-09-28 18:30:00,10.0.5.20,LAPTOP-OS15,Success,0,Office - Floor 5
+LOG020,E006,Frank Patel,frank.patel,2026-09-25 08:30:00,,198.51.100.42,UNKNOWN-DEVICE,Failed,3,External - Flagged

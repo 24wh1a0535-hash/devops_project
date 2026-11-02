@@ -4,7 +4,7 @@ agent/nodes.py
 Node functions for the LangGraph agent graph.
 
 Nodes:
-    call_llm_node   - Sends messages to the LLM; it may call tools or respond directly.
+    call_llm_node   - Sends messages to the LLM; may call tools or respond directly.
     tool_node       - Executes MCP tool calls requested by the LLM.
 """
 
@@ -20,12 +20,62 @@ from mcp_server.permissions import can_use_tool
 
 logger = logging.getLogger(__name__)
 
-# Tools that require a specific role check before execution
+# All tools that require a role-based permission check before execution.
+# This is the AUTHORITATIVE backend gate — independent of the UI question list.
 PERMISSION_CHECKED_TOOLS = {
+    # Existing tools
     "get_employee_info",
     "get_department_info",
     "get_project_info",
     "search_company_policy",
+    # Employee tools
+    "get_leave_balance",
+    "get_hr_info",
+    # Manager tools
+    "get_team_leave_info",
+    "get_team_attendance",
+    "get_team_utilization",
+    # Admin tools
+    "admin_manage_user",
+    "get_compliance_training_status",
+    "get_login_activity",
+    "audit_login_activity",
+    "get_headcount_report",   # dedicated org-wide headcount report (Admin only)
+    "get_admin_permissions",
+    # IT support — employee tools
+    "check_active_incidents",
+    "check_application_status",
+    "check_vpn_status",
+    "check_network_status",
+    "check_user_application_access",
+    "check_authentication_issue",
+    "get_it_ticket_status",
+    "get_it_ticket_assignee",
+    "get_it_ticket_last_updated",
+    "find_related_incident",
+    "create_it_ticket",
+    # IT support — manager tools
+    "get_team_incidents",
+    "get_team_affected_users",
+    "compare_incident_scope",
+    "get_incident_status",
+    "get_incident_owner",
+    "get_incident_timeline",
+    "get_incident_eta",
+    "get_team_unresolved_tickets",
+    "get_recurring_team_incidents",
+    "escalate_incident",
+    # IT support — admin tools
+    "get_active_incidents",
+    "get_critical_service_status",
+    "get_affected_offices_departments",
+    "get_incident_impact",
+    "get_incident_updates",
+    "get_incident_responsible_team",
+    "get_sla_breaches",
+    "get_recurring_incidents",
+    "find_duplicate_incidents",
+    "get_incidents_requiring_escalation",
 }
 
 
@@ -97,7 +147,7 @@ def tool_node(state: AgentState, mcp_client) -> dict:
         tool_args    = dict(tool_call["args"])
         tool_call_id = tool_call["id"]
 
-        # ── Permission check ──────────────────────────────────────────────
+        # ── Backend permission check ──────────────────────────────────────
         if tool_name in PERMISSION_CHECKED_TOOLS and not can_use_tool(user_role, tool_name):
             denied_msg = (
                 "You do not have permission to access this information. "
@@ -132,7 +182,6 @@ def tool_node(state: AgentState, mcp_client) -> dict:
             logger.error("Tool call failed for %s: %s", tool_name, e)
             result_str = json.dumps({"error": f"Tool '{tool_name}' failed: {str(e)}"})
 
-        # Extract source field for metadata
         try:
             parsed = json.loads(result_str)
             source = parsed.get("source", "unknown")

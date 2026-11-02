@@ -1,0 +1,11 @@
+request_id,employee_id,name,department,leave_type,start_date,end_date,days,status,manager_id,reason
+LR001,E002,Bob Martinez,AI,Annual,2026-10-06,2026-10-10,5,Pending,E011,Family vacation
+LR002,E003,Carol White,AI,Sick,2026-10-07,2026-10-08,2,Pending,E011,Medical appointment
+LR003,E005,Eva Chen,Engineering,Annual,2026-10-13,2026-10-17,5,Pending,E012,Personal trip
+LR004,E006,Frank Patel,Engineering,Casual,2026-10-06,2026-10-06,1,Pending,E012,Personal errand
+LR005,E008,Henry Brown,Security,Annual,2026-10-08,2026-10-09,2,Pending,E013,Family event
+LR006,E010,James Wilson,HR,Sick,2026-10-07,2026-10-07,1,Approved,E009,Doctor visit
+LR007,E014,Noah Clark,Finance,Annual,2026-10-20,2026-10-24,5,Pending,E015,Holiday travel
+LR008,E001,Alice Johnson,AI,Casual,2026-10-10,2026-10-10,1,Approved,E011,Bank work
+LR009,E004,David Kim,Engineering,Annual,2026-10-14,2026-10-16,3,Pending,E012,Home renovation
+LR010,E007,Grace Lee,Security,Annual,2026-10-21,2026-10-25,5,Pending,E013,International trip

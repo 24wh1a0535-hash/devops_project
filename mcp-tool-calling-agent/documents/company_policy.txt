@@ -1,6 +1,6 @@
 ACME TECHNOLOGIES INC.
 COMPANY POLICY DOCUMENT
-Version 3.2 | Effective Date: January 1, 2026
+Version 3.3 | Effective Date: January 1, 2026
 ==================================================
 
 1. INTRODUCTION
@@ -26,7 +26,163 @@ Flexible work arrangements are available with manager approval.
 Remote work is permitted up to 3 days per week for eligible roles.
 Overtime must be pre-approved by direct managers and documented.
 
-4. COMMUNICATION POLICY
+4. OVERTIME POLICY
+------------------
+Overtime applies to hours worked beyond the standard 9 AM - 6 PM schedule.
+To approve overtime for a team member:
+  Step 1: Employee submits an overtime request via the HR portal before the
+          overtime date, specifying date, hours, and reason.
+  Step 2: Manager reviews and approves/rejects the request within 24 hours.
+  Step 3: Approved overtime is recorded in the timesheet system.
+  Step 4: Compensation is either paid at 1.5x rate (standard) or given as
+          compensatory leave at the employee's preference.
+  Step 5: The HR team processes overtime payments in the next payroll cycle.
+Managers may not approve their own overtime requests. Overtime above 40
+hours per month requires HR Director approval.
+
+5. TIMESHEET POLICY
+-------------------
+All employees must submit their monthly timesheets by the 28th of each month.
+Timesheets are submitted via the Employee Self Service (ESS) portal.
+Manager approval is required by the 30th of each month.
+Payroll is processed on the last working day of each month.
+Late submissions after the 28th may result in payment delays.
+Falsifying timesheet data is a serious disciplinary offence.
+
+6. RESIGNATION AND NOTICE PERIOD POLICY
+-----------------------------------------
+Employees who wish to resign must submit a formal written resignation letter
+to their direct manager and a copy to HR at hr@acmetech.com.
+Notice period requirements are as follows:
+  - Probationary period employees: 1 week notice
+  - Employees with less than 2 years of service: 1 month notice
+  - Employees with 2–5 years of service: 2 months notice
+  - Employees with more than 5 years of service: 3 months notice
+The company may waive part or all of the notice period at its discretion.
+During the notice period, employees are expected to complete handover duties.
+Garden leave may be offered at the company's discretion.
+Final settlement including leave encashment is processed within 30 days of
+the last working day.
+
+7. PROBATION POLICY
+-------------------
+All new employees at ACME Technologies serve a probation period of 3 months
+from their joining date.
+During probation:
+  - Performance is assessed by the direct manager at the end of week 4,
+    week 8, and end of month 3.
+  - Either party may terminate employment with 1 week's notice.
+  - Leave entitlements are prorated based on days worked.
+  - Benefits are limited to basic health insurance and PF contribution.
+At the end of the probation period, the manager submits a Probation Review
+form to HR. On successful completion, the employee is confirmed and full
+benefits apply. The probation period may be extended once, by up to 1 month,
+with HR approval.
+
+8. SALARY CERTIFICATE PROCESS
+------------------------------
+Employees may request a salary certificate for bank, visa, or personal use.
+To request a salary certificate:
+  Step 1: Log in to the Employee Self Service (ESS) portal.
+  Step 2: Navigate to Documents > Salary Certificate Request.
+  Step 3: Select the purpose (Bank Loan / Visa Application / Personal).
+  Step 4: Submit the request. HR processes it within 2 business days.
+  Step 5: The certificate is available for download in the ESS portal and
+          also sent to your company email address.
+For urgent requests (same day), email hr@acmetech.com with subject:
+  "URGENT Salary Certificate Request - [Employee Name] - [Employee ID]"
+Physical copies with HR stamp and signature are available on request.
+Salary certificates are issued in English and can be translated if required.
+
+9. EXPENSE REIMBURSEMENT POLICY
+---------------------------------
+ACME Technologies reimburses approved business expenses including:
+  - Client meals and entertainment (with prior approval)
+  - Business travel and accommodation
+  - Professional training and certifications
+  - Home office equipment (with manager approval)
+To claim reimbursement for a client dinner or business meal:
+  Step 1: Obtain manager approval before or within 48 hours of the expense.
+  Step 2: Keep the original receipt or invoice.
+  Step 3: Log in to the Employee Self Service (ESS) portal.
+  Step 4: Navigate to Finance > Expense Reimbursement > New Claim.
+  Step 5: Select category: Client Entertainment / Meal.
+  Step 6: Upload the receipt, enter amount, date, and names of attendees.
+  Step 7: Submit the claim. Manager approves within 3 business days.
+  Step 8: Finance processes approved claims in the next payroll cycle.
+Reimbursement limits: Client meals up to INR 3,000 per person per event.
+Alcohol expenses are not reimbursable.
+Expenses older than 30 days without prior approval may not be reimbursed.
+
+10. HEADCOUNT AND HIRING POLICY
+---------------------------------
+To request additional headcount for your department:
+  Step 1: Complete a Headcount Request Form on the HR portal.
+  Step 2: Provide business justification, required role, budget code, and
+          desired start date.
+  Step 3: Submit to HR. The HR team reviews the request within 5 business days.
+  Step 4: HR presents the request to the Finance and Executive team for budget
+          approval.
+  Step 5: On approval, HR initiates the recruitment process.
+  Step 6: The hiring manager is involved in interviews and final selection.
+Headcount requests above 3 positions require VP-level approval.
+
+11. OFFBOARDING POLICY
+-----------------------
+When an employee resigns or is terminated, the following offboarding steps apply:
+  Step 1: Resignation/termination letter is received and acknowledged by HR.
+  Step 2: Exit interview is scheduled by HR within the first week.
+  Step 3: Manager assigns a handover buddy or creates a knowledge transfer plan.
+  Step 4: IT revokes all system access on the last working day.
+  Step 5: Employee returns company equipment (laptop, access card, devices).
+  Step 6: HR processes final settlement: unpaid salary, leave encashment,
+          any pending reimbursements.
+  Step 7: HR completes the HR portal offboarding checklist.
+  Step 8: Employee's accounts are deactivated within 24 hours of last working day.
+  Step 9: Company email is auto-forwarded for 30 days then disabled.
+Managers must ensure all project documentation and credentials are transferred
+before the employee's last day.
+
+12. ONBOARDING POLICY
+----------------------
+When a new employee joins ACME Technologies, the following onboarding steps apply:
+  Step 1: HR creates an employee profile in the HR system with personal details,
+          department, role, manager, and start date.
+  Step 2: IT provisions a company laptop, email account, and access badge.
+  Step 3: IT grants access to required systems based on role (principle of
+          least privilege).
+  Step 4: Manager assigns onboarding buddy from the team.
+  Step 5: Employee completes mandatory Day 1 orientation with HR.
+  Step 6: Employee completes mandatory online compliance training within 30 days.
+  Step 7: Manager conducts 30-day and 60-day check-ins.
+  Step 8: Probation review at 3 months.
+To onboard a new employee into the system:
+  - Raise an IT Access Request ticket with the employee's name, ID, department,
+    role, and start date.
+  - Attach the signed offer letter and background verification clearance.
+  - Specify the access groups required (standard employee groups by default).
+  - IT processes the request within 2 business days of the start date.
+
+13. USER ACCOUNT RESTORATION POLICY
+--------------------------------------
+A deactivated user account can be restored in the following scenarios:
+  - Employee returning from extended leave
+  - Contractor rehired
+  - Account deactivated in error
+Process to restore a deactivated user account:
+  Step 1: Submit an IT Helpdesk ticket titled "Account Restoration Request".
+  Step 2: Provide: employee name, employee ID, username, reason for restoration,
+          and authorization from the department manager and HR.
+  Step 3: The IT Security team verifies the request and checks for any
+          outstanding compliance or security holds on the account.
+  Step 4: If cleared, IT restores the account and resets the password.
+  Step 5: The employee is required to complete an MFA re-enrollment.
+  Step 6: Restored accounts are placed under enhanced monitoring for 30 days.
+  Step 7: HR confirms the restoration in the employee management system.
+Accounts deactivated due to policy violations or termination require CISO
+approval before restoration.
+
+14. COMMUNICATION POLICY
 ------------------------
 - All official communication must use company-issued email accounts.
 - Confidential information must not be shared via personal email or
@@ -34,41 +190,41 @@ Overtime must be pre-approved by direct managers and documented.
 - External communications representing the company require manager review.
 - Social media posts about company work must follow the social media policy.
 
-5. USE OF COMPANY RESOURCES
+15. USE OF COMPANY RESOURCES
 -----------------------------
 Company devices, software, and networks are for business purposes.
 Personal use is permitted within reasonable limits.
 Employees must not install unauthorized software on company devices.
 All data stored on company systems is subject to audit.
 
-6. INTELLECTUAL PROPERTY
+16. INTELLECTUAL PROPERTY
 --------------------------
 All work created by employees during employment belongs to ACME Technologies.
 This includes code, designs, documents, and research.
 Employees may not use company intellectual property for personal gain.
 
-7. PERFORMANCE REVIEWS
+17. PERFORMANCE REVIEWS
 -----------------------
 Performance reviews are conducted twice a year: in June and December.
 Employees receive written feedback and ratings on key competencies.
 Promotion decisions are based on performance, skills, and business need.
 Employees may request an informal mid-year check-in with their manager.
 
-8. DISCIPLINARY PROCESS
+18. DISCIPLINARY PROCESS
 ------------------------
 Minor violations: Verbal warning followed by written warning.
 Serious violations: Written warning, performance improvement plan, or
 immediate suspension/termination depending on severity.
 All disciplinary actions are documented in the employee HR file.
 
-9. GRIEVANCE PROCEDURE
+19. GRIEVANCE PROCEDURE
 -----------------------
 Employees with workplace concerns should first speak with their manager.
 If unresolved, raise the concern with the HR department in writing.
 HR will investigate and respond within 10 business days.
 Retaliation against employees who report concerns is strictly prohibited.
 
-10. AMENDMENTS
+20. AMENDMENTS
 --------------
 ACME Technologies reserves the right to amend policies at any time.
 Employees will be notified of significant changes via company email.

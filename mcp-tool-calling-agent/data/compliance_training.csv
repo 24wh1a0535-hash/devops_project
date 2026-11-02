@@ -1,0 +1,46 @@
+employee_id,name,department,course_name,course_type,required_by,completion_status,completion_date,expiry_date
+E001,Alice Johnson,AI,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-15,2027-02-15
+E001,Alice Johnson,AI,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-05-20,2027-05-20
+E001,Alice Johnson,AI,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-01,2027-03-01
+E002,Bob Martinez,AI,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-20,2027-02-20
+E002,Bob Martinez,AI,Data Privacy & GDPR,Mandatory,2026-06-30,Not Started,,
+E002,Bob Martinez,AI,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-10,2027-03-10
+E003,Carol White,AI,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-28,2027-02-28
+E003,Carol White,AI,Data Privacy & GDPR,Mandatory,2026-06-30,In Progress,,
+E003,Carol White,AI,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-05,2027-03-05
+E004,David Kim,Engineering,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-10,2027-02-10
+E004,David Kim,Engineering,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-06-01,2027-06-01
+E004,David Kim,Engineering,Anti-Harassment Policy,Mandatory,2026-03-31,Not Started,,
+E005,Eva Chen,Engineering,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-03-20,2027-03-20
+E005,Eva Chen,Engineering,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-05-15,2027-05-15
+E005,Eva Chen,Engineering,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-15,2027-03-15
+E006,Frank Patel,Engineering,Information Security Awareness 2026,Mandatory,2026-03-31,Not Started,,
+E006,Frank Patel,Engineering,Data Privacy & GDPR,Mandatory,2026-06-30,Not Started,,
+E006,Frank Patel,Engineering,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-25,2027-03-25
+E007,Grace Lee,Security,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-01-20,2027-01-20
+E007,Grace Lee,Security,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-04-10,2027-04-10
+E007,Grace Lee,Security,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-02-01,2027-02-01
+E008,Henry Brown,Security,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-05,2027-02-05
+E008,Henry Brown,Security,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-05-30,2027-05-30
+E008,Henry Brown,Security,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-28,2027-03-28
+E009,Iris Thompson,HR,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-01-15,2027-01-15
+E009,Iris Thompson,HR,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-03-20,2027-03-20
+E009,Iris Thompson,HR,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-01-20,2027-01-20
+E010,James Wilson,HR,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-25,2027-02-25
+E010,James Wilson,HR,Data Privacy & GDPR,Mandatory,2026-06-30,Not Started,,
+E010,James Wilson,HR,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-12,2027-03-12
+E011,Karen Davis,AI,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-01-25,2027-01-25
+E011,Karen Davis,AI,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-04-15,2027-04-15
+E011,Karen Davis,AI,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-02-10,2027-02-10
+E012,Leo Nguyen,Engineering,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-08,2027-02-08
+E012,Leo Nguyen,Engineering,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-05-05,2027-05-05
+E012,Leo Nguyen,Engineering,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-02,2027-03-02
+E013,Mia Robinson,Security,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-01-10,2027-01-10
+E013,Mia Robinson,Security,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-03-15,2027-03-15
+E013,Mia Robinson,Security,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-01-30,2027-01-30
+E014,Noah Clark,Finance,Information Security Awareness 2026,Mandatory,2026-03-31,Not Started,,
+E014,Noah Clark,Finance,Data Privacy & GDPR,Mandatory,2026-06-30,Not Started,,
+E014,Noah Clark,Finance,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-18,2027-03-18
+E015,Olivia Scott,Finance,Information Security Awareness 2026,Mandatory,2026-03-31,Completed,2026-02-12,2027-02-12
+E015,Olivia Scott,Finance,Data Privacy & GDPR,Mandatory,2026-06-30,Completed,2026-04-20,2027-04-20
+E015,Olivia Scott,Finance,Anti-Harassment Policy,Mandatory,2026-03-31,Completed,2026-03-08,2027-03-08

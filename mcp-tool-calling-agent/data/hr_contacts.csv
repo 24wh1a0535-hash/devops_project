@@ -1,0 +1,6 @@
+department,hr_representative,email,phone_ext,location,backup_contact
+AI,James Wilson,james.wilson@acmetech.com,2210,Floor 3 - HR Pod,Iris Thompson
+Engineering,James Wilson,james.wilson@acmetech.com,2210,Floor 3 - HR Pod,Iris Thompson
+Security,Iris Thompson,iris.thompson@acmetech.com,2200,Floor 3 - HR Office,James Wilson
+HR,Iris Thompson,iris.thompson@acmetech.com,2200,Floor 3 - HR Office,James Wilson
+Finance,Iris Thompson,iris.thompson@acmetech.com,2200,Floor 3 - HR Office,James Wilson

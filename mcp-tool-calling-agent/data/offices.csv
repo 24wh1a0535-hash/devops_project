@@ -1,0 +1,6 @@
+office_id,office_name,city,status,description,affected_services,related_incident
+OFF001,Hyderabad HQ,Hyderabad,Degraded,The Hyderabad office is experiencing IT issues. The Employee Portal SSO authentication is failing and the SmartAssist AI Platform is unavailable.,Employee Portal; SmartAssist AI Platform,INC001; INC003
+OFF002,Bangalore Tech Hub,Bangalore,Degraded,The Bangalore office is experiencing slowness on the Internal Developer Portal. Network connectivity is otherwise normal.,Internal Developer Portal,INC004
+OFF003,Chennai Finance Center,Chennai,Degraded,The Chennai office Finance network segment has 15% packet loss affecting financial transaction processing.,Finance Network; Finance System,INC006
+OFF004,Mumbai Sales Office,Mumbai,Operational,All IT services are fully operational in the Mumbai office. No incidents reported.,None,
+OFF005,Delhi Corporate Office,Delhi,Operational,All IT services are fully operational in the Delhi office. No incidents reported.,None,

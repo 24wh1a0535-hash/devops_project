@@ -1,0 +1,18 @@
+employee_id,name,department,username,email,system_access_level,account_status,last_password_change,mfa_enabled,access_groups,created_date,deactivated_date
+E001,Alice Johnson,AI,alice.johnson,alice.johnson@acmetech.com,standard,active,2026-08-01,yes,"employees,ai-team,ml-platform",2022-03-15,
+E002,Bob Martinez,AI,bob.martinez,bob.martinez@acmetech.com,standard,active,2026-07-15,yes,"employees,ai-team",2023-01-10,
+E003,Carol White,AI,carol.white,carol.white@acmetech.com,standard,active,2026-09-01,yes,"employees,ai-team,analytics",2023-06-20,
+E004,David Kim,Engineering,david.kim,david.kim@acmetech.com,standard,active,2026-08-10,yes,"employees,engineering,backend",2021-11-05,
+E005,Eva Chen,Engineering,eva.chen,eva.chen@acmetech.com,standard,active,2026-09-05,yes,"employees,engineering,frontend",2022-08-12,
+E006,Frank Patel,Engineering,frank.patel,frank.patel@acmetech.com,elevated,active,2026-09-10,yes,"employees,engineering,devops,infra-admin",2020-05-18,
+E007,Grace Lee,Security,grace.lee,grace.lee@acmetech.com,elevated,active,2026-09-15,yes,"employees,security-team,siem-access",2021-09-25,
+E008,Henry Brown,Security,henry.brown,henry.brown@acmetech.com,elevated,active,2026-08-20,yes,"employees,security-team,pentest",2022-04-07,
+E009,Iris Thompson,HR,iris.thompson,iris.thompson@acmetech.com,standard,active,2026-09-20,yes,"employees,hr-team,hr-admin",2019-02-14,
+E010,James Wilson,HR,james.wilson,james.wilson@acmetech.com,standard,active,2026-08-25,yes,"employees,hr-team",2021-07-30,
+E011,Karen Davis,AI,karen.davis,karen.davis@acmetech.com,elevated,active,2026-09-01,yes,"employees,ai-team,ml-platform,team-leads",2018-06-11,
+E012,Leo Nguyen,Engineering,leo.nguyen,leo.nguyen@acmetech.com,elevated,active,2026-09-05,yes,"employees,engineering,backend,team-leads,infra-admin",2017-03-22,
+E013,Mia Robinson,Security,mia.robinson,mia.robinson@acmetech.com,admin,active,2026-09-10,yes,"employees,security-team,siem-access,security-admin,team-leads",2016-09-08,
+E014,Noah Clark,Finance,noah.clark,noah.clark@acmetech.com,standard,active,2026-09-15,yes,"employees,finance-team",2023-09-01,
+E015,Olivia Scott,Finance,olivia.scott,olivia.scott@acmetech.com,elevated,active,2026-09-20,yes,"employees,finance-team,finance-admin,team-leads",2018-11-19,
+EX001,Tom Harris,Engineering,tom.harris,tom.harris@acmetech.com,standard,deactivated,2026-06-01,no,"employees",2020-01-15,2026-08-31
+EX002,Sara Mitchell,HR,sara.mitchell,sara.mitchell@acmetech.com,standard,deactivated,2026-03-01,no,"employees,hr-team",2019-09-10,2026-07-15

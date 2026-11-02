@@ -89,18 +89,16 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("**Example Questions**")
-    examples = [
-        "Who works in the AI department?",
-        "What projects are currently active?",
-        "Who works in AI and what projects are they on?",
-        "Who works in Security and what are the security policies?",
-        "What is the company leave policy?",
-        "What are the password requirements?",
-        "Show restricted salary information.",
-    ]
-    for ex in examples:
-        if st.button(ex, use_container_width=True):
-            st.session_state["prefill"] = ex
+    # Questions are dynamically filtered to match the selected role's permissions.
+    # The backend permission check in agent/nodes.py is still the authoritative gate.
+    from role_questions import get_questions_for_role
+    examples = get_questions_for_role(user_role)
+    if examples:
+        for ex in examples:
+            if st.button(ex, use_container_width=True, key=f"ex_{ex[:40]}"):
+                st.session_state["prefill"] = ex
+    else:
+        st.caption("No example questions are available for this role.")
 
     st.markdown("---")
     if st.button("🗑️ Clear chat", use_container_width=True):

@@ -1,0 +1,16 @@
+employee_id,name,department,review_cycle,last_review_date,next_review_date,reviewer,status,review_type
+E001,Alice Johnson,AI,Bi-Annual,2026-06-15,2026-12-15,Karen Davis,Scheduled,Performance Review
+E002,Bob Martinez,AI,Bi-Annual,2026-06-15,2026-12-15,Karen Davis,Scheduled,Performance Review
+E003,Carol White,AI,Bi-Annual,2026-06-15,2026-12-15,Karen Davis,Scheduled,Performance Review
+E004,David Kim,Engineering,Bi-Annual,2026-06-20,2026-12-20,Leo Nguyen,Scheduled,Performance Review
+E005,Eva Chen,Engineering,Bi-Annual,2026-06-20,2026-12-20,Leo Nguyen,Scheduled,Performance Review
+E006,Frank Patel,Engineering,Bi-Annual,2026-06-20,2026-12-20,Leo Nguyen,Scheduled,Performance Review
+E007,Grace Lee,Security,Bi-Annual,2026-06-10,2026-12-10,Mia Robinson,Scheduled,Performance Review
+E008,Henry Brown,Security,Bi-Annual,2026-06-10,2026-12-10,Mia Robinson,Overdue,Performance Review
+E009,Iris Thompson,HR,Annual,2026-03-01,2026-12-01,HR Director,Scheduled,Annual Review
+E010,James Wilson,HR,Bi-Annual,2026-06-05,2026-12-05,Iris Thompson,Scheduled,Performance Review
+E011,Karen Davis,AI,Annual,2026-03-01,2026-12-01,CTO,Scheduled,Annual Review
+E012,Leo Nguyen,Engineering,Annual,2026-03-01,2026-12-01,CTO,Scheduled,Annual Review
+E013,Mia Robinson,Security,Annual,2026-03-01,2026-12-01,CISO,Scheduled,Annual Review
+E014,Noah Clark,Finance,Bi-Annual,2026-06-25,2026-12-25,Olivia Scott,Scheduled,Performance Review
+E015,Olivia Scott,Finance,Annual,2026-03-01,2026-12-01,CFO,Scheduled,Annual Review

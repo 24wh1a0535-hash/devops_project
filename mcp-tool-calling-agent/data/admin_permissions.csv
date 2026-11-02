@@ -1,0 +1,11 @@
+employee_id,name,department,username,role_in_system,permission_level,can_manage_users,can_view_all_data,can_modify_permissions,can_run_reports,can_audit_logs,granted_by,granted_date
+E006,Frank Patel,Engineering,frank.patel,Infrastructure Admin,elevated,no,no,no,yes,no,leo.nguyen,2023-01-10
+E007,Grace Lee,Security,grace.lee,Security Analyst (Elevated),elevated,no,yes,no,yes,yes,mia.robinson,2022-09-15
+E008,Henry Brown,Security,henry.brown,Penetration Tester (Elevated),elevated,no,yes,no,no,yes,mia.robinson,2023-03-20
+E009,Iris Thompson,HR,iris.thompson,HR System Admin,elevated,yes,yes,no,yes,no,cto@acmetech.com,2019-06-01
+E011,Karen Davis,AI,karen.davis,Team Lead (Elevated),elevated,no,no,no,yes,no,cto@acmetech.com,2021-01-15
+E012,Leo Nguyen,Engineering,leo.nguyen,Engineering Lead (Elevated),elevated,no,no,no,yes,no,cto@acmetech.com,2020-08-01
+E013,Mia Robinson,Security,mia.robinson,Security Admin (Full Admin),admin,yes,yes,yes,yes,yes,cto@acmetech.com,2019-01-01
+E015,Olivia Scott,Finance,olivia.scott,Finance Admin (Elevated),elevated,no,yes,no,yes,no,cfo@acmetech.com,2021-04-10
+SVC001,deploy-bot,Engineering,deploy-bot,Service Account - CI/CD,elevated,no,no,no,no,no,leo.nguyen,2022-06-15
+SVC002,backup-agent,IT,backup-agent,Service Account - Backup,elevated,no,yes,no,no,no,it-admin@acmetech.com,2021-11-20
